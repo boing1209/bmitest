@@ -11,7 +11,6 @@ st.set_page_config(page_title='BODY MASS INDEX : wab Applicaton',page_icon='🏳
 kg=st.number_input('นํ้าหนัก (kg) :')
 cm=st.number_input('ส่วนสูง (cm) :')
 
-from gtts import gTTS
 import io
 
 if st.button('คํานวณ'):
@@ -99,3 +98,4 @@ if generate_btn:
 
     except Exception as e:
         st.error(f"เกิดข้อผิดพลาด: {e}")
+
