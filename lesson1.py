@@ -18,23 +18,23 @@ if st.button('คํานวณ'):
    tt=f'ค่า BMI ของคุณคือ {bmi:.2f}'
    if bmi < 18.5:
      st.info(tt)
-     st.image('C:/aipython/BMI ผอม.png')
+     st.image('C:/aipython/BMIผอม.png')
      word="ผอม"
    elif bmi < 24.9:
      st.success(tt)
-     st.image('C:/aipython/BMI ปกติ.png')
+     st.image('C:/aipython/BMIปกติ.png')
      word="ปกติ"
    elif bmi < 29.9:
      st.success(tt)
-     st.image('C:/aipython/BMI อ้วน.png')
+     st.image('C:/aipython/BMIอ้วน.png')
      word="อ้วน"
    elif bmi < 34.9:
      st.warning(tt)
-     st.image('C:/aipython/BMI อ้วน1.png')
+     st.image('C:/aipython/BMIอ้วน1.png')
      word="อ้วน2"
    elif bmi > 35:
      st.error(tt)
-     st.image('C:/aipython/BMI อ้วน2.png')
+     st.image('C:/aipython/BMIอ้วน2.png')
      word="อ้วน3"
      
    tts = gTTS(text=word, lang='th')
@@ -98,4 +98,5 @@ if generate_btn:
 
     except Exception as e:
         st.error(f"เกิดข้อผิดพลาด: {e}")
+
 
