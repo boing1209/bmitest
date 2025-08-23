@@ -14,6 +14,8 @@ def askAI(question):
     return(response.choices[0].message.content)
 
 import streamlit as st
+from gtts import gTTS
+import io
 
 st.header('หา BMI')
 
@@ -25,9 +27,6 @@ st.image('https://i0.wp.com/ethicalinc.com/wp-content/uploads/2022/11/iStockLarg
 st.set_page_config(page_title='BODY MASS INDEX : wab Applicaton',page_icon='🏳️‍🌈')
 kg=st.number_input('นํ้าหนัก (kg) :')
 cm=st.number_input('ส่วนสูง (cm) :')
-
-from gtts import gTTS
-import io
 
 if st.button('คํานวณ'):
    bmi=kg/(cm/100)**2    
@@ -119,3 +118,4 @@ if generate_btn:
 
     except Exception as e:
         st.error(f"เกิดข้อผิดพลาด: {e}")
+
