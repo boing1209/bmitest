@@ -1,3 +1,18 @@
+def askAI(question):
+    from openai import OpenAI
+    client = OpenAI(api_key="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")
+
+    response = client.chat.completions.create(
+        model="gpt-4o-mini",  # หรือ gpt-4o / o1-mini / o1-preview
+        messages=[
+          {"role": "system", "content": "You are a helpful assistant."},
+          {"role": "user", "content": question}
+      ],
+      max_tokens=200
+    )
+
+    return(response.choices[0].message.content)
+
 import streamlit as st
 
 st.header('หา BMI')
@@ -11,6 +26,7 @@ st.set_page_config(page_title='BODY MASS INDEX : wab Applicaton',page_icon='🏳
 kg=st.number_input('นํ้าหนัก (kg) :')
 cm=st.number_input('ส่วนสูง (cm) :')
 
+from gtts import gTTS
 import io
 
 if st.button('คํานวณ'):
@@ -18,24 +34,29 @@ if st.button('คํานวณ'):
    tt=f'ค่า BMI ของคุณคือ {bmi:.2f}'
    if bmi < 18.5:
      st.info(tt)
-     st.image('C:/aipython/BMIผอม.png')
+     st.image('ผอม.png')
      word="ผอม"
    elif bmi < 24.9:
      st.success(tt)
-     st.image('C:/aipython/BMIปกติ.png')
+     st.image('ปกติ.png')
      word="ปกติ"
    elif bmi < 29.9:
      st.success(tt)
-     st.image('C:/aipython/BMIอ้วน.png')
+     st.image('อ้วน.png')
      word="อ้วน"
    elif bmi < 34.9:
      st.warning(tt)
-     st.image('C:/aipython/BMIอ้วน1.png')
+     st.image('อ้วน1.png')
      word="อ้วน2"
    elif bmi > 35:
      st.error(tt)
-     st.image('C:/aipython/BMIอ้วน2.png')
+     st.image('อ้วน2.png')
      word="อ้วน3"
+
+     q=st.empty()
+     q.write("รอผมวิเคราะห์สักครู่.....")
+     question = f'สรุปสุขภาพของคนที่มี bmi={bmi} แบบสั้นๆ '
+     q.write(askAI(question))
      
    tts = gTTS(text=word, lang='th')
    mp3_fp = io.BytesIO()
@@ -98,5 +119,3 @@ if generate_btn:
 
     except Exception as e:
         st.error(f"เกิดข้อผิดพลาด: {e}")
-
-
