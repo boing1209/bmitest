@@ -50,10 +50,10 @@ if st.button('คํานวณ'):
      st.image('BMI อ้วน2.png')
      word="อ้วน3"
 
-     q=st.empty()
-     q.write("รอผมวิเคราะห์สักครู่.....")
-     question = f'สรุปสุขภาพของคนที่มี bmi={bmi} แบบสั้นๆ '
-     q.write(askAI(question))
+   q=st.empty()
+   q.write("รอผมวิเคราะห์สักครู่.....")
+   question = f'สรุปสุขภาพของคนที่มี bmi={bmi} แบบสั้นๆ '
+   q.write(askAI(question))
      
 import streamlit as st
 import requests
@@ -110,6 +110,7 @@ if generate_btn:
 
     except Exception as e:
         st.error(f"เกิดข้อผิดพลาด: {e}")
+
 
 
 
