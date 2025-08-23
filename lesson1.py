@@ -55,12 +55,6 @@ if st.button('คํานวณ'):
      question = f'สรุปสุขภาพของคนที่มี bmi={bmi} แบบสั้นๆ '
      q.write(askAI(question))
      
-   tts = gTTS(text=word, lang='th')
-   mp3_fp = io.BytesIO()
-   tts.write_to_fp(mp3_fp)
-   mp3_fp.seek(0)
-   st.audio(mp3_fp, format='aidio/mp3')
-
 import streamlit as st
 import requests
 from pathlib import Path
@@ -116,6 +110,7 @@ if generate_btn:
 
     except Exception as e:
         st.error(f"เกิดข้อผิดพลาด: {e}")
+
 
 
 
