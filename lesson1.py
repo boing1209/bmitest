@@ -1,6 +1,6 @@
 def askAI(question):
     from openai import OpenAI
-    client = OpenAI(api_key="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")
+    client = OpenAI(api_key="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")
 
     response = client.chat.completions.create(
         model="gpt-4o-mini",  # หรือ gpt-4o / o1-mini / o1-preview
@@ -31,23 +31,23 @@ if st.button('คํานวณ'):
    tt=f'ค่า BMI ของคุณคือ {bmi:.2f}'
    if bmi < 18.5:
      st.info(tt)
-     st.image('ผอม.png')
+     st.image('BMI ผอม.png')
      word="ผอม"
    elif bmi < 24.9:
      st.success(tt)
-     st.image('ปกติ.png')
+     st.image('BMI ปกติ.png')
      word="ปกติ"
    elif bmi < 29.9:
      st.success(tt)
-     st.image('อ้วน.png')
+     st.image('BMI อ้วน.png')
      word="อ้วน"
    elif bmi < 34.9:
      st.warning(tt)
-     st.image('อ้วน1.png')
+     st.image('BMI อ้วน1.png')
      word="อ้วน2"
    elif bmi > 35:
      st.error(tt)
-     st.image('อ้วน2.png')
+     st.image('BMI อ้วน2.png')
      word="อ้วน3"
 
      q=st.empty()
@@ -116,5 +116,6 @@ if generate_btn:
 
     except Exception as e:
         st.error(f"เกิดข้อผิดพลาด: {e}")
+
 
 
