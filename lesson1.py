@@ -14,8 +14,6 @@ def askAI(question):
     return(response.choices[0].message.content)
 
 import streamlit as st
-from gtts import gTTS
-import io
 
 st.header('หา BMI')
 
@@ -118,4 +116,5 @@ if generate_btn:
 
     except Exception as e:
         st.error(f"เกิดข้อผิดพลาด: {e}")
+
 
